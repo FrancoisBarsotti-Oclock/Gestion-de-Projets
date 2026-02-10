@@ -1,6 +1,7 @@
 
-# Fiche de cadrage: Modernisation de l'infrastructure IT du campus O'clock
+# Challenge C101 - Fiche de cadrage: Modernisation de l'infrastructure IT du campus O'clock
 
+Ce challenge fait partie du projet "fil rouge", à être suivie tout au long de la saison C1.
 ## Ressources recommandées: 
 [éléments clés pour réussir](https://facility-project.com/note-cadrage-projet/)
 
