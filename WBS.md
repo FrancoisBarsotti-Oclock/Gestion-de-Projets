@@ -10,7 +10,7 @@
 # Ressource recommandée: 
 [Drawio](https://www.drawio.com/) pour faire diagramme.
 # Working Breakdown Structure (WBS): Modernisation de l'infrastructure IT du Campus O'clock  
-![WBS](WBS_fil_rouge.jpg)
+![WBS](image.png)
 
 ### Structure du WBS:
 **1. Pilotage du projet**
