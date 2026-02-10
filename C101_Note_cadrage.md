@@ -103,7 +103,10 @@ La direction souhaite une modernisation globale, et le service IT intègre un al
 
 ### :white_check_mark: **7. Méthode recommandée**
 
-* Approche itérative
+* Méthode hybride
+* Cycle en V : cette méthode séquentielle structure le projet en phases distinctes (analyse des besoins, conception, réalisation, tests, validation). Elle permet de garantir que chaque étape est validée avant de passer à la suivante, ce qui est particulièrement adapté aux projets d'infrastructure où la sécurité et la fiabilité sont critiques.
+* Méthode Agile : l'utilisation de sprints courts permet d'apporter de la flexibilité au projet. Des ajustements peuvent être réalisés rapidement en fonction des retours terrain ou des contraintes techniques découvertes en cours de route.
+* Approche DevOps : cette approche favorise l'automatisation de la configuration des serveurs, du déploiement des services et des tests. Elle permet de gagner du temps, de réduire les erreurs humaines et d'assurer une mise en production plus rapide et fiable.
 * Découpage par lots fonctionnels (réseau, sécurité, stockage)
 * Validation à chaque étape
 * Implication active de l’alternant
