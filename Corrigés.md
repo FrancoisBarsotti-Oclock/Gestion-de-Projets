@@ -191,24 +191,24 @@ Le WBS du projet de modernisation de l'infrastructure IT se décompose en 5 gran
 PlantUML est un outil permettant de générer des diagrammes à partir de code textuel. Voici le code pour générer le WBS du projet :
 
 ```ruby
-> @startwbs
-> * Déploiement d'une infrastructure IT
-> ** 1. Préparation projet
-> *** 1.1 Cadrage
-> *** 1.2 Analyse besoins
-> ** 2. Infrastructure serveur
-> *** 2.1 Installation serveur fichiers
-> *** 2.2 Configuration NAS
-> ** 3. Sécurité réseau
-> *** 3.1 Déploiement firewall
-> *** 3.2 Configuration VLAN
-> ** 4. Sauvegarde et supervision
-> *** 4.1 Mise en place sauvegardes
-> *** 4.2 Mise en place supervision
-> ** 5. Tests et validation
-> *** 5.1 Test sécurité
-> *** 5.2 Test utilisateurs
-> @endwbs
+@startwbs
+* Déploiement d'une infrastructure IT
+** 1. Préparation projet
+*** 1.1 Cadrage
+*** 1.2 Analyse besoins
+** 2. Infrastructure serveur
+*** 2.1 Installation serveur fichiers
+*** 2.2 Configuration NAS
+** 3. Sécurité réseau
+*** 3.1 Déploiement firewall
+*** 3.2 Configuration VLAN
+** 4. Sauvegarde et supervision
+*** 4.1 Mise en place sauvegardes
+*** 4.2 Mise en place supervision
+** 5. Tests et validation
+*** 5.1 Test sécurité
+*** 5.2 Test utilisateurs
+@endwbs
 ```
 
 ### Comment utiliser ce code PlantUML
