@@ -11,8 +11,8 @@
 >    * Procédures de reprise
 >    * Responsable et délai de restauration
 >3. Identifier les indicateurs de succès
-
-**Livrable attendu** : mini-PRA ou PCA
+>
+>**Livrable attendu** : mini-PRA ou PCA
 #
 # :books: Mini-PRA / PCA – Modernisation infrastructure IT
 
