@@ -260,3 +260,126 @@ Aujourd'hui on s'attaque à l'analyse des risques !
 * Vous pouvez utiliser les outils de votre choix pour le registre
 * Gardez bien le fichier, ça peut toujours servir !
 * Prenez le temps de chercher de la documentation sur le sujet
+#
+## Correction
+L'analyse des risques est une étape cruciale dans la gestion de projet. Elle permet d'identifier en amont les événements potentiels qui pourraient compromettre le succès du projet et de mettre en place des actions préventives ou correctives.
+
+Le registre des risques doit être un document vivant, mis à jour régulièrement tout au long du projet. Chaque risque identifié doit être évalué selon deux dimensions : sa probabilité d'occurrence et son impact sur le projet. Le croisement de ces deux critères permet de déterminer la criticité et donc la priorité de traitement.
+
+Les risques peuvent être classés en trois grandes catégories :
+
+* **Techniques** : liés aux choix technologiques, à la configuration ou à la fiabilité des équipements
+* **Humains** : liés aux compétences, à la disponibilité ou aux erreurs des personnes impliquées
+* **Organisationnels** : liés à la planification, aux processus ou aux parties prenantes externes
+#
+### Registre des risques du projet
+Le tableau ci-dessous présente les 10 risques principaux identifiés pour le projet de modernisation de l'infrastructure IT du campus. Chaque risque est évalué et des actions de prévention sont proposées.
+
+| **ID** | **Catégorie** | **Risque** |  **Probabilité** | **Impact** | **Criticité** | **Actions prévues / Prévention** | **Responsable** | 
+| -------- | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: |  :-------: | 
+| 1 | Technique | Panne serveur pendant l'installation du NAS | Moyenne | Critique | Élevée | Prévoir serveur temporaire / tests préalables |  Administrateur SI | 
+| 2 | Technique | Firewall mal configuré → coupure réseau | Moyenne | Critique | Élevée | Checklist configuration + revue par pair |  Administrateur SI | 
+| 3 | Technique | Problème d'intégration VLAN → accès Wi-Fi instable | Moyenne | Moyen | Moyenne | Tests VLAN avant mise en production |  Réseau | 
+| 4 | Technique | Incompatibilité avec équipements existants | Faible | Moyen | Faible | Audit du matériel et documentation |  DSI / RSSI |
+| 5 | Humain | Erreur humaine lors de la configuration du NAS | Moyenne | Moyen | Moyenne | Procédures écrites + double vérification |  Alternant / Admin |
+| 6 | Humain | Absence du freelance formateur pour tests réseau | Moyenne | Faible | Moyenne | Planification et validation de disponibilité |  Chef projet |
+| 7 | Organisationnel | Retard dans la livraison du matériel | Moyenne | Moyen | Moyenne | Suivi fournisseur et planning ajusté |  Chef projet |
+| 8 | Organisationnel | Dépendance sur alternant pour tâches critiques | Faible | Critique | Moyenne | Formation croisée + supervision |  DSI / Manager |
+| 9 | Organisationnel | Changement de besoins des utilisateurs | Moyenne | Moyen | Moyenne | Atelier de validation / revue régulière |  Chef projet |
+| 10 | Technique | Perte de données lors migration fichiers | Faible | Critique | Moyenne | Sauvegardes avant migration + test restauration |  Administrateur SI |
+
+#
+
+### Explication détaillée de tous les risques
+Chaque risque identifié dans le registre nécessite une compréhension claire de ses causes, de ses conséquences potentielles et des mesures de prévention à mettre en œuvre.
+
+### Risque 1 - Panne serveur pendant l'installation du NAS
+Ce risque technique combine une probabilité moyenne d'occurrence avec un impact critique. Une panne du serveur principal pendant la phase d'installation du NAS pourrait interrompre les services du campus et compromettre la continuité pédagogique. Pour mitiger ce risque, il est recommandé de prévoir un serveur temporaire de secours et de réaliser des tests préalables en environnement isolé avant tout déploiement en production.
+
+### Risque 2 - Firewall mal configuré → coupure réseau
+Une erreur de configuration du firewall pourrait entraîner une coupure réseau complète du campus, affectant l'ensemble des utilisateurs. Pour prévenir ce risque, une checklist de configuration détaillée doit être établie et chaque étape doit faire l'objet d'une revue par un second administrateur (principe des quatre yeux). Des tests de connectivité doivent être réalisés progressivement avant la mise en production définitive. Une intervention en heure non ouvrée pourrait etre envisagée
+
+### Risque 3 - Problème d'intégration VLAN → accès Wi-Fi instable
+Ce risque technique présente une probabilité moyenne avec un impact moyen. Une mauvaise intégration des VLAN pourrait entraîner des problèmes de connectivité Wi-Fi, affectant particulièrement les utilisateurs nomades (formateurs freelances, apprenants en mobilité). Des connexions intermittentes ou des temps de latence élevés pourraient perturber les activités pédagogiques. Pour prévenir ce risque, des tests approfondis de la segmentation VLAN doivent être réalisés avant la mise en production, incluant des tests de charge et de basculement entre différents VLAN.
+
+### Risque 4 - Incompatibilité avec équipements existants
+Ce risque technique présente une probabilité faible mais un impact moyen. Certains équipements déjà en place (switches, routeurs, imprimantes réseau) pourraient ne pas être compatibles avec la nouvelle infrastructure, nécessitant des remplacements imprévus ou des configurations complexes. Pour anticiper ce risque, un audit complet du matériel existant doit être réalisé en amont du projet, accompagné d'une documentation précise des versions firmware et des protocoles supportés.
+
+### Risque 5 - Erreur humaine lors de la configuration du NAS
+Ce risque humain présente une probabilité moyenne avec un impact moyen. L'alternant, bien qu'encadré, pourrait commettre des erreurs lors de la configuration du NAS (droits d'accès incorrects, partages mal configurés, politiques de sauvegarde inadéquates). Ces erreurs pourraient entraîner des problèmes d'accès aux données ou des failles de sécurité. Pour mitiger ce risque, des procédures écrites détaillées doivent être mises à disposition et chaque configuration doit faire l'objet d'une double vérification par l'administrateur SI avant validation.
+
+### Risque 6 - Absence du freelance formateur pour tests réseau
+Ce risque humain présente une probabilité moyenne avec un impact faible. Les formateurs freelances ayant des emplois du temps variables, leur disponibilité pour participer aux tests utilisateurs du réseau Wi-Fi pourrait être limitée. Leur absence pourrait retarder légèrement la validation finale de l'infrastructure. Pour gérer ce risque, une planification anticipée des sessions de test doit être effectuée avec validation préalable de leur disponibilité, et des créneaux alternatifs doivent être prévus.
+
+### Risque 7 - Retard dans la livraison du matériel
+Ce risque organisationnel présente une probabilité moyenne avec un impact moyen. Les délais de livraison des équipements (serveurs, NAS, firewall, points d'accès Wi-Fi) peuvent être affectés par des ruptures de stock, des problèmes logistiques ou des retards fournisseurs. Ces retards pourraient décaler l'ensemble du planning du projet. Pour prévenir ce risque, un suivi régulier des commandes doit être effectué avec les fournisseurs, et le planning doit intégrer des marges de sécurité. Des fournisseurs alternatifs peuvent être identifiés en cas de besoin.
+
+### Risque 8 - Dépendance sur alternant pour tâches critiques
+Ce risque organisationnel présente une probabilité faible mais un impact critique. Si l'alternant se voit confier des tâches critiques sans supervision suffisante et qu'il devient indisponible (maladie, fin de contrat anticipée, absence), le projet pourrait être fortement impacté. Pour mitiger ce risque, une formation croisée doit être mise en place pour que plusieurs membres de l'équipe maîtrisent les aspects critiques du projet. L'alternant doit toujours être supervisé par un administrateur expérimenté sur les tâches sensibles.
+
+### Risque 9 - Changement de besoins des utilisateurs
+Ce risque organisationnel présente une probabilité moyenne avec un impact moyen. En cours de projet, les utilisateurs (direction, formateurs, apprenants) pourraient exprimer de nouveaux besoins ou modifier leurs exigences initiales (espaces de stockage supplémentaires, accès spécifiques, nouvelles segmentations réseau). Ces changements pourraient nécessiter des ajustements de configuration et impacter les délais. Pour gérer ce risque, des ateliers de validation réguliers doivent être organisés avec les parties prenantes, et un processus de gestion des changements doit être formalisé avec évaluation de l'impact avant acceptation.
+
+### Risque 10 - Perte de données lors migration fichiers
+Ce risque technique présente une probabilité faible mais un impact critique. Lors de la migration des données existantes vers le nouveau serveur de fichiers, des erreurs de transfert, des corruptions de fichiers ou des suppressions accidentelles pourraient survenir, entraînant une perte de données importantes pour le campus. Pour prévenir ce risque, des sauvegardes complètes doivent être réalisées avant toute migration, des tests de restauration doivent être effectués pour valider leur intégrité, et la migration doit être réalisée par phases avec validation progressive.
+#
+### Méthodologie d'évaluation
+L'évaluation de chaque risque repose sur une grille de criticité croisant probabilité et impact :
+
+**Probabilité d'occurrence** :
+
+* **Faible** : risque peu probable de se produire
+* **Moyenne** : risque ayant une probabilité modérée de se produire
+* **Forte** : risque très probable de se produire
+
+**Impact sur le projet** :
+
+* **Faible** : conséquences mineures, sans impact majeur sur les délais, coûts ou qualité
+* **Moyen** : conséquences significatives nécessitant des ajustements du planning ou du budget
+* **Critique** : conséquences graves pouvant compromettre le succès du projet ou la continuité de service
+
+**Criticité résultante** :
+
+* **Élevée** : probabilité moyenne/forte ET impact critique → traitement prioritaire
+* **Moyenne** : autres combinaisons nécessitant surveillance et actions préventives
+* **Faible** : probabilité faible ET impact faible/moyen → surveillance simple
+#
+### Suivi et mise à jour du registre
+Le registre des risques n'est pas un document figé. Il doit être mis à jour régulièrement lors des réunions de suivi de projet. De nouveaux risques peuvent apparaître en cours de route, et certains risques identifiés peuvent se concrétiser ou au contraire devenir caduques.
+
+Pour chaque risque, le responsable désigné doit :
+
+* Surveiller les indicateurs d'alerte
+* Mettre en œuvre les actions préventives planifiées
+* Réévaluer régulièrement la probabilité et l'impact
+* Documenter les actions correctives si le risque se matérialise
+
+Ce registre servira également de base pour alimenter le retour d'expérience (REX) en fin de projet. Sonnet 4.5Claude is AI and can make mistakes. Please double-check réponses.
+#
+## Énoncé E4
+### Contexte
+Vous êtes responsable de l'informatique au sein d'un campus de formation professionnelle (en présentiel 😁).
+
+Le campus compte en permanence environ 500 personnes, entre les salariés (une quinzaine), les formateurs (freelances, formateurs occasionnels) et les apprenants (formation continue et alternance).
+
+La direction vous demande de moderniser l’infrastructure IT du campus pour accueillir de nouveaux services numériques : serveurs fichiers, NAS, firewall, VLAN et accès sécurisé Wi-Fi.
+
+Dans votre service, vous accueillez actuellement un alternant.
+
+### Consignes
+Vous avez créé la note de cadrage du projet, le WBS et le registre des risques.
+
+Aujourd'hui on prépare la continuité et la reprise d’activité.
+
+1. Définir un scénario d’incident majeur (panne totale serveur)
+2. Décrire :
+   * Mesures préventives
+   * Procédures de reprise
+   * Responsable et délai de restauration
+3. Identifier les indicateurs de succès
+**Livrable attendu** : mini-PRA ou PCA
+
+### Notes
+* Vous pouvez utiliser les outils de votre choix pour le registre
+* Gardez bien le fichier, ça peut toujours servir !
+* Prenez le temps de chercher de la documentation sur le sujet
