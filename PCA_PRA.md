@@ -1,16 +1,16 @@
 # Challenge C104: PCA & PRA
 > Continuation (Partie 4) du projet "fil rouge", à être suivi tout au long de la saison C1.
 ## Énoncé E4 - Consignes
-Jusqu'hier nous avons créé la note de cadrage du projet, son WBS et son registre des risques.
-
-Aujourd'hui on prépare la continuité (PC) et la reprise (PR) d’activité.
-
-1. Définir un scénario d’incident majeur (panne totale serveur)
-2. Décrire :
-    * Mesures préventives
-    * Procédures de reprise
-    * Responsable et délai de restauration
-3. Identifier les indicateurs de succès
+>Jusqu'hier nous avons créé la note de cadrage du projet, son WBS et son registre des risques.
+>
+>Aujourd'hui on prépare la continuité (PC) et la reprise (PR) d’activité.
+>
+>1. Définir un scénario d’incident majeur (panne totale serveur)
+>2. Décrire :
+>    * Mesures préventives
+>    * Procédures de reprise
+>    * Responsable et délai de restauration
+>3. Identifier les indicateurs de succès
 
 **Livrable attendu** : mini-PRA ou PCA
 #
