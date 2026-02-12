@@ -1,6 +1,6 @@
 # Challenge C103: Registre de risques
-> Continuation (Partie 3) du projet "fil rouge", à être suivie tout au long de la saison C1.
-# Énoncé E3 - Consignes
+> Continuation (Partie 3) du projet "fil rouge", à être suivi tout au long de la saison C1.
+## Énoncé E3 - Consignes
 > Jusqu'hier vous avez créé la note de cadrage et le WBS du projet.
 > 
 > Aujourd'hui on s'attaque à l'analyse des risques !
