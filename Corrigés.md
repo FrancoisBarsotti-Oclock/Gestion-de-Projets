@@ -383,3 +383,118 @@ Aujourd'hui on prépare la continuité et la reprise d’activité.
 * Vous pouvez utiliser les outils de votre choix pour le registre
 * Gardez bien le fichier, ça peut toujours servir !
 * Prenez le temps de chercher de la documentation sur le sujet
+
+# Correction
+### Note pour le formateur
+Le Plan de Reprise d'Activité (PRA) et le Plan de Continuité d'Activité (PCA) sont des documents essentiels pour garantir la résilience de l'infrastructure IT face aux incidents majeurs.
+
+### Distinction PRA / PCA :
+
+* Le **PRA** (Plan de Reprise d'Activité) définit les procédures à mettre en œuvre **après** un sinistre pour restaurer les services dans un délai acceptable.
+* Le **PCA** (Plan de Continuité d'Activité) vise à **maintenir** les services critiques **pendant** l'incident grâce à des mesures préventives et des solutions de contournement.
+
+Dans le cadre de ce projet, un mini-PRA/PCA permet d'anticiper les scénarios d'incident les plus probables et d'assurer la continuité des services pédagogiques et administratifs du campus.
+#
+### Analyse des menaces et vulnérabilités
+Avant de définir le plan de reprise, il est essentiel d'identifier les principales menaces pesant sur l'infrastructure et les vulnérabilités associées. Le tableau ci-dessous recense les menaces critiques, les vulnérabilités exploitables et les mesures de sécurité correspondantes, en référence aux standards ANSSI et ISO 27001.
+
+| **Menace** | **Vulnérabilité** | **Mesure sécurité** | **Référence ANSSI / ISO 27001** |
+| ------- | :------: |  :------: | :------: | 
+| Ransomware | OS non patché |  Patch OS + Antivirus + backup | ISO 27001 A.12.6 | 
+| Phishing | Utilisateur non formé |  Sensibilisation + MFA | ANSSI Guide PRA-PCI | 
+| Intrusion firewall | Règles mal configurées |  Audit + logging + alerting | ISO 27001 A.13.1 | 
+| Panne NAS | Redondance absente |  RAID + sauvegarde hors site | ANSSI Recommandation Secu | 
+| Coupure électricité | Pas d'UPS |  Installation onduleur | ISO 27001 A.11.2 | 
+
+### Explication des menaces et mesures de sécurité
+**Ransomware** : ce type d'attaque par rançongiciel peut chiffrer l'ensemble des données du serveur, rendant l'infrastructure inutilisable. La vulnérabilité principale réside dans les systèmes d'exploitation non mis à jour, qui présentent des failles de sécurité exploitables. Les mesures préventives incluent l'application régulière des correctifs de sécurité, le déploiement d'un antivirus avec protection en temps réel, et la mise en place de sauvegardes hors ligne régulières permettant une restauration des données même en cas de chiffrement.
+
+**Phishing** : les attaques par hameçonnage exploitent le manque de vigilance des utilisateurs pour obtenir des identifiants d'accès ou installer des logiciels malveillants. Pour réduire cette vulnérabilité, des campagnes de sensibilisation régulières doivent être organisées auprès du personnel et des apprenants. L'activation de l'authentification multi-facteurs (MFA) constitue une barrière supplémentaire efficace contre l'utilisation frauduleuse de comptes compromis.
+
+**Intrusion firewall** : une configuration incorrecte du pare-feu peut laisser des ports ouverts ou autoriser des flux non légitimes, exposant le réseau interne à des intrusions. Des audits réguliers de la configuration, associés à la mise en place de journalisation (logging) et d'alertes automatiques sur les tentatives de connexion suspectes, permettent de détecter et corriger rapidement les vulnérabilités.
+
+**Panne NAS** : l'absence de redondance sur le système de stockage constitue un point de défaillance unique. La mise en place d'un système RAID permet de tolérer la panne d'un ou plusieurs disques sans perte de données. Les sauvegardes hors site (dans un autre bâtiment ou dans le cloud) garantissent une protection supplémentaire en cas de sinistre majeur (incendie, inondation).
+
+**Coupure électricité** : une coupure prolongée de l'alimentation électrique peut entraîner l'arrêt brutal des serveurs et la corruption de données. L'installation d'onduleurs (UPS) permet de maintenir l'infrastructure opérationnelle pendant la durée nécessaire à une extinction propre des systèmes, voire de basculer sur un groupe électrogène pour les services critiques.
+#
+
+### Mini-Plan de Reprise d'Activité (PRA) / Plan de Continuité d'Activité (PCA)
+Le plan ci-dessous se concentre sur le scénario d'incident le plus critique pour le campus : la panne totale du serveur de fichiers, qui concentre les données pédagogiques, administratives et les ressources partagées essentielles au fonctionnement quotidien.
+
+**Scénario d'incident critique**
+
+**Incident retenu** : panne totale du serveur de fichiers principal.
+
+Ce scénario inclut les cas suivants :
+
+* Défaillance matérielle (panne carte mère, alimentation, disques)
+* Corruption logicielle majeure (système d'exploitation endommagé)
+* Attaque par ransomware ayant chiffré les données
+* Sinistre physique (incendie, dégât des eaux dans la salle serveurs)
+
+**Mesures préventives**
+Les mesures suivantes sont mises en place en amont pour réduire la probabilité de l'incident et en limiter l'impact :
+
+* **Configuration RAID** : le serveur de fichiers utilise une configuration RAID 5 ou RAID 6 permettant de tolérer la défaillance d'un ou deux disques sans interruption de service.
+* **Sauvegarde quotidienne** : des sauvegardes automatiques complètes sont réalisées chaque nuit sur le NAS secondaire. Une sauvegarde hebdomadaire est externalisée (stockage hors site ou cloud).
+* **NAS secondaire** : un NAS de secours est maintenu en état de disponibilité permanente, synchronisé quotidiennement avec le serveur principal. Il peut prendre le relais en cas de défaillance du serveur principal.
+* **Surveillance proactive** : des outils de monitoring surveillent en temps réel l'état du serveur (température, état des disques, charge CPU/mémoire) et génèrent des alertes en cas d'anomalie.
+* **Onduleur (UPS)** : le serveur et le NAS sont protégés par un onduleur permettant de maintenir l'alimentation électrique pendant au moins 30 minutes en cas de coupure.
+
+**Procédure de reprise d'activité**
+En cas de panne totale du serveur de fichiers, la procédure suivante est déclenchée :
+
+**Étape 1 - Détection et alerte (0 à 15 minutes)**
+
+* Le système de monitoring détecte l'incident et envoie une alerte automatique à l'administrateur serveur.
+* L'administrateur confirme l'incident et active la procédure de reprise.
+* Une communication est envoyée aux utilisateurs pour les informer de l'incident et de la mise en œuvre de la solution de secours.
+
+**Étape 2 - Bascule sur NAS secondaire (15 à 60 minutes)**
+
+* Le NAS secondaire, déjà synchronisé avec le serveur principal, est activé comme serveur de fichiers temporaire.
+* Les partages réseau sont reconfigurés pour pointer vers le NAS secondaire.
+* Les utilisateurs peuvent accéder aux fichiers à partir des dernières sauvegardes disponibles (données de la veille au maximum).
+
+**Étape 3 - Diagnostic et restauration (1 à 4 heures)**
+
+* L'administrateur identifie la cause de la panne (matériel, logiciel, attaque).
+* Si réparation possible : intervention technique pour remplacer le composant défaillant ou restaurer le système.
+* Si réparation impossible : le NAS secondaire est confirmé comme solution permanente et un nouveau serveur est commandé en urgence.
+* Restauration des données depuis la dernière sauvegarde complète sur le serveur réparé ou remplacé.
+
+**Étape 4 - Tests de validation (3 à 4 heures)**
+
+* *érification de l'intégrité des données restaurées par échantillonnage.
+* Tests d'accès par profils utilisateurs (apprenant, formateur, administratif).
+* Validation de la disponibilité de tous les partages réseau.
+
+**Étape 5 - Retour à la normale et retour d'expérience**
+
+* Bascule des utilisateurs vers le serveur restauré.
+* Communication de reprise du service normal.
+* Rédaction d'un compte-rendu d'incident et mise à jour du PRA si nécessaire.
+
+**Responsable et délai de restauration**
+* **Responsable principal** : Administrateur serveur (avec support de l'administrateur SI)
+* **Responsable de communication** : Chef de projet (information direction et utilisateurs)
+* **Délai cible de restauration (RTO - Recovery Time Objective)** : moins de 4 heures entre la détection de l'incident et le retour à un service opérationnel.
+* **Perte de données maximale acceptable (RPO - Recovery Point Objective)** : 24 heures maximum (données de la dernière sauvegarde nocturne).
+
+**Indicateurs de succès**
+Les indicateurs suivants permettent de valider la réussite de la procédure de reprise :
+
+* **Service accessible** : tous les utilisateurs peuvent accéder aux partages réseau et ouvrir leurs fichiers dans le délai imparti de 4 heures.
+* **Intégrité des données confirmée** : les tests d'échantillonnage ne révèlent aucune corruption de fichiers, aucune perte de données récentes au-delà du RPO défini.
+* **Satisfaction utilisateurs** : aucune plainte majeure concernant l'indisponibilité prolongée ou la perte de travail.
+* **Documentation complète** : un rapport d'incident détaillé est rédigé, incluant la chronologie, les actions menées et les améliorations à apporter au PRA.
+* **Respect du délai RTO** : la restauration complète est effectuée en moins de 4 heures comme spécifié.
+#
+### Points d'attention pour la mise en œuvre du PRA/PCA
+Pour que ce plan soit opérationnel, plusieurs conditions doivent être remplies :
+
+* **Tests réguliers** : le PRA doit être testé au moins deux fois par an dans des conditions réelles (simulation d'incident) pour vérifier que les procédures sont applicables et que les équipes sont formées.
+* **Mise à jour continue** : le plan doit être actualisé à chaque évolution de l'infrastructure (ajout de serveurs, changement de fournisseur de sauvegarde, etc.).
+* **Formation des équipes** : l'administrateur serveur et l'alternant doivent être formés aux procédures de reprise. Des fiches réflexes doivent être disponibles en cas d'urgence.
+* **Documentation accessible** : le PRA doit être stocké à la fois en version numérique (accessible même en cas de panne du serveur principal) et en version papier pour consultation en situation de crise totale.
+* **Validation des sauvegardes** : des tests de restauration doivent être effectués mensuellement pour garantir que les sauvegardes sont exploitables et complètes.
